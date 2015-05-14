@@ -14,11 +14,11 @@ namespace
     public:
         Library() {}
 
-        ~ILibrary() {}
+        ~Library() {}
 
         void AddItem(const Book& i_book) override
         {
-            m_items.push_back(i_book);
+            m_books.push_back(i_book);
         }
 
         void RemoveItem(TFilter i_filter) override
@@ -28,7 +28,7 @@ namespace
             }));
         }
 
-        const Book& Lookup(TFilter i_filter) const throw (...) override
+        const Book& Lookup(TFilter i_filter) const throw (std::exception) override
         {
             auto it = std::find_if(m_books.begin(), m_books.end(), [&i_filter] (const Book& i_book) {
                 return i_filter (i_book);
@@ -46,7 +46,7 @@ namespace
 }
 
 
-ILibraryPtr CreateLibrary()
+ILibraryPtr BookClub::CreateLibrary()
 {
     ILibraryPtr p_library(new Library());
     return std::move(p_library);

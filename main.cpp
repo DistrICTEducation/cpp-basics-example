@@ -1,10 +1,13 @@
-#include <iostream>
+#include "model/ilibrary.h"
+#include "view/createlibraryui.h"
+#include "utilities/loadlibrarydata.h"
 
-using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    BookClub::ILibraryPtr p_library = BookClub::CreateLibrary();
+    LoadLibraryCSVData(*p_library.get(), "data.csv");
+    CreateLibraryUI(*p_library.get());
     return 0;
 }
 

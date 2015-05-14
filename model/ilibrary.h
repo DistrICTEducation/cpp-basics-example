@@ -33,7 +33,7 @@ namespace BookClub
          * @param  i_filter
          * @return the item matching the filter.
          */
-        virtual const Book& Lookup(TFilter i_filter) const throw (...) = 0;
+        virtual const Book& Lookup(TFilter i_filter) const throw (std::exception) = 0;
 
         /**
          * @brief NumberOfItems

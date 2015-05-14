@@ -11,5 +11,6 @@ qtcAddDeployment()
 
 include(model/model.pri)
 include(view/view.pri)
+include(utilities/utilities.pri)
 
 SOURCES += main.cpp
