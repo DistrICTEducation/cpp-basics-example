@@ -14,11 +14,20 @@ namespace
 {
     int _ParseInteger(const std::string& i_integer)
     {
-        return -1;
+        return atoi(i_integer.c_str());
     }
 
     Book::ERating _ParseRating(const std::string& i_rating)
     {
+        if (i_rating.compare("POOR") == 0)
+            return Book::ERating::POOR;
+        if (i_rating.compare("AVERAGE") == 0)
+            return Book::ERating::AVERAGE;
+        if (i_rating.compare("GOOD") == 0)
+            return Book::ERating::GOOD;
+        if (i_rating.compare("EXCELLENT") == 0)
+            return Book::ERating::EXCELLENT;
+
         return Book::ERating::UNKNOWN;
     }
 }
